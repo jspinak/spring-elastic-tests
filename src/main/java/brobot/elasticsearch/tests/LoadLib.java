@@ -1,18 +1,17 @@
 package brobot.elasticsearch.tests;
 
-import io.github.jspinak.brobotelastic.service.ActionLogServiceImpl;
+import org.springbootcourse.service.EmployeeServiceImpl;
 import org.springframework.stereotype.Component;
 
 @Component
 public class LoadLib {
+    private final EmployeeServiceImpl testClass;
 
-    private final ActionLogServiceImpl actionLogService;
-
-    public LoadLib(ActionLogServiceImpl actionLogService) {
-        this.actionLogService = actionLogService;
+    public LoadLib(EmployeeServiceImpl testClass) {
+        this.testClass = testClass;
     }
 
     public void doStuff() {
-        actionLogService.getAllActionLogs();
+        testClass.getAllEmployees();
     }
 }
