@@ -6,15 +6,17 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
+@ComponentScan
 public class TestsApplication {
 
-	public static void main(String[] args) {
+	public static void main( String[] args )
+	{
 		SpringApplicationBuilder builder = new SpringApplicationBuilder(TestsApplication.class);
 		builder.headless(false);
 		ConfigurableApplicationContext context = builder.run(args);
 
-		TestElasticsearch testElasticsearch = context.getBean(TestElasticsearch.class);
-		testElasticsearch.test();
+		LoadLib loadLib = context.getBean(LoadLib.class);
+		loadLib.doStuff();
 	}
 
 }
